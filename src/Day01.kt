@@ -29,8 +29,10 @@ fun main() {
     }
 
     val testInput = readInput("Day01_test")
-    check(part1(testInput), 11L)
-    check(part2(testInput), 31L)
+    if (testInput.isNotEmpty()) {
+        check(part1(testInput), 11L)
+        check(part2(testInput), 31L)
+    }
 
     val input = readInput("Day01")
     part1(input).println()

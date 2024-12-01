@@ -64,7 +64,7 @@ fun createTemplates() {
 fun findLatestDayExisting(): Int {
     return rootProject.file("src")
         .listFiles()
-        ?.filter { it.isFile && it.nameWithoutExtension.startsWith("Day") && it.extension == "kt" }
+        ?.filter { it.isFile && it.nameWithoutExtension.startsWith("Day") && it.name.contains("test").not() && it.extension == "txt" }
         ?.maxOfOrNull { it.nameWithoutExtension.removePrefix("Day").toIntOrNull() ?: 0 } ?: 0
 }
 
@@ -89,15 +89,17 @@ fun createFiles(n: Int) {
                 fun part1(input: List<String>): Long {
                     return 0L
                 }
-                
+            
                 fun part2(input: List<String>): Long {
                     return 0L
                 }
-                
+            
                 val testInput = readInput("Day${dayNumberString}_test")
-                check(part1(testInput), 0L)
-                check(part2(testInput), 0L)
-                
+                if (testInput.isNotEmpty()) {
+                    check(part1(testInput), 0L)
+                    check(part2(testInput), 0L)
+                }
+            
                 val input = readInput("Day${dayNumberString}")
                 part1(input).println()
                 part2(input).println()
