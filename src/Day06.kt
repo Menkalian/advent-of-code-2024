@@ -1,5 +1,3 @@
-import javax.swing.text.Position
-
 enum class Direction {
     UP,
     DOWN,

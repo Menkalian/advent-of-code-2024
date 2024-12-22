@@ -22,6 +22,14 @@ tasks {
     }
 }
 
+dependencies {
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0")
+}
+
+repositories {
+    mavenCentral()
+}
+
 try {
     val localProperties = Properties()
     localProperties.load(rootProject.file("local.properties").inputStream())
